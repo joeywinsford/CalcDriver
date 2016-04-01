@@ -1,24 +1,34 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace CalcDriver.Tests
 {
-    public class SummingNumbers
-    {
+	public class SummingNumbers : IDisposable
+	{
+		private readonly Calculator _calculator;
+
+		public SummingNumbers()
+		{
+			_calculator = new Calculator();
+
+			_calculator.Clear();
+			Assert.Equal(0, _calculator.Total);
+		}
+
 		[Fact]
 		public void SumTwoIntegers()
 		{
-			using (var calculator = new Calculator())
-			{
-				calculator.Clear();
-				Assert.Equal(0, calculator.Total);
+			_calculator.EnterDigit(1);
+			_calculator.EnterOperator(new AddOperator());
+			_calculator.EnterDigit(4);
+			_calculator.EnterDigit(3);
 
-				calculator.EnterDigit(1);
-				calculator.EnterOperator(new AddOperator());
-				calculator.EnterDigit(4);
-				calculator.EnterDigit(3);
+			Assert.Equal(1 + 43, _calculator.Total);
+		}
 
-				Assert.Equal(1 + 43, calculator.Total);
-			}
+		public void Dispose()
+		{
+			_calculator.Dispose();
 		}
 	}
 }
