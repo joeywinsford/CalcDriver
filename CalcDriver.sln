@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcDriver", "CalcDriver\CalcDriver.csproj", "{700FB8E4-F53C-4E8C-B4F4-174B6250775F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcDriver.Tests", "CalcDriver.Tests\CalcDriver.Tests.csproj", "{B46BFCEA-B0EF-4D2B-B06D-1B4D2808FCE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{700FB8E4-F53C-4E8C-B4F4-174B6250775F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700FB8E4-F53C-4E8C-B4F4-174B6250775F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{700FB8E4-F53C-4E8C-B4F4-174B6250775F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{700FB8E4-F53C-4E8C-B4F4-174B6250775F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B46BFCEA-B0EF-4D2B-B06D-1B4D2808FCE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B46BFCEA-B0EF-4D2B-B06D-1B4D2808FCE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B46BFCEA-B0EF-4D2B-B06D-1B4D2808FCE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B46BFCEA-B0EF-4D2B-B06D-1B4D2808FCE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
