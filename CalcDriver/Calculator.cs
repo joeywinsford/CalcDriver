@@ -22,21 +22,36 @@ namespace CalcDriver
 		{
 			get
 			{
-				var equalsButton = FindButton("Equals");
-				equalsButton.Click();
+				ClickButton("Equals");
 				return decimal.Parse(FindResult().Text);
 			}
 		}
 
 		public void EnterDigit(int digit)
 		{
-			var digitButton = FindButton(digit.ToString());
+			var digitButton = _window.Get<Button>(SearchCriteria.ByText(digit.ToString()));
 			digitButton.Click();
 		}
 
-		private Button FindButton(string buttonText)
+		public void EnterOperator(ICalculatorOperator @operator)
 		{
-			return _window.Get<Button>(SearchCriteria.ByText(buttonText));
+			var operatorButton = _window.Get<Button>(SearchCriteria.ByText(@operator.ButtonName));
+			operatorButton.Click();
+		}
+
+		public void EnterDecimalPoint()
+		{
+			ClickButton("Decimal separator");
+		}
+
+		public void Clear()
+		{
+			ClickButton("Clear entry");
+		}
+
+		public void Dispose()
+		{
+			_app.Dispose();
 		}
 
 		private Label FindResult()
@@ -45,21 +60,10 @@ namespace CalcDriver
 			return _window.Get<Label>(SearchCriteria.ByAutomationId(resultControlAutomationId));
 		}
 
-		public void Clear()
+		private void ClickButton(string buttonName)
 		{
-			var clearButton = FindButton("Clear entry");
-			clearButton.Click();
-		}
-
-		public void EnterOperator(ICalculatorOperator @operator)
-		{
-			var operatorButton = FindButton(@operator.ButtonName);
-			operatorButton.Click();
-		}
-
-		public void Dispose()
-		{
-			_app.Dispose();
+			var button = _window.Get<Button>(SearchCriteria.ByText(buttonName));
+			button.Click();
 		}
 	}
 }
